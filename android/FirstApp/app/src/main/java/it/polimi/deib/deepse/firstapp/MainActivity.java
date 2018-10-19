@@ -1,6 +1,7 @@
 package it.polimi.deib.deepse.firstapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +19,10 @@ public class MainActivity extends Activity {
         System.out.println("Hello!!!");
         EditText editText = findViewById(R.id.editText1);
         String text = editText.getText().toString();
-        TextView textView = findViewById(R.id.textView1);
-        textView.setText(""+text.length());
+
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("data", text.length());
+        startActivity(intent);
+
     }
 }

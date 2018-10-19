@@ -17,16 +17,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Compute length"
+            android:text="@string/mystring"
             android:onClick="pressMe"
             />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="?"
-        android:textSize="40dp"/>
+
 
 </LinearLayout>
