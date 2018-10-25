@@ -1,16 +1,44 @@
 package it.polimi.deib.deepse.moviesdiary.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
 
+    @SerializedName("imdbID")
+    @Expose
+    private String imdbId;
+
+    @SerializedName("Title")
+    @Expose
     private String title;
-    private String director;
+
+    @SerializedName("Director")
+    @Expose
+    private String directorName;
+
+    @SerializedName("Year")
+    @Expose
+    private String year;
+
+
+    private float userRating;
+    private String userReview;
 
     public Movie(String title, String director){
         this.title = title;
-        this.director = director;
+        this.directorName = director;
+    }
+
+    public String getImdbId() {
+        return imdbId;
+    }
+
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
     }
 
     public String getTitle() {
@@ -22,16 +50,40 @@ public class Movie {
     }
 
     public String getDirector() {
-        return director;
+        return directorName;
     }
 
     public void setDirector(String director) {
-        this.director = director;
+        this.directorName = director;
+    }
+
+    public float getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(float userRating) {
+        this.userRating = userRating;
+    }
+
+    public String getUserReview() {
+        return userReview;
+    }
+
+    public void setUserReview(String userReview) {
+        this.userReview = userReview;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     @Override
     public String toString(){
-        return title + " by " + director;
+        return title + " by " + directorName;
     }
 
 

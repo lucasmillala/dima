@@ -24,21 +24,36 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                         ViewGroup parent){
 
         Movie movie = getItem(position);
+        MovieViewHolder holder;
 
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) getContext().
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             convertView = li.inflate(R.layout.movie_item, null);
+            holder = new MovieViewHolder(convertView);
+            convertView.setTag(holder);
+        }
+        else {
+            holder = (MovieViewHolder) convertView.getTag();
         }
 
-        TextView titleTV = convertView.findViewById(R.id.movieTitleTextView);
-        TextView directorTV = convertView.findViewById(R.id.movieDirectorTextView);
-
-        titleTV.setText(movie.getTitle());
-        directorTV.setText(movie.getDirector());
+        holder.titleTV.setText(movie.getTitle());
+        holder.directorTV.setText(movie.getDirector());
 
         return convertView;
+    }
+
+    static class MovieViewHolder {
+
+        TextView titleTV;
+        TextView directorTV;
+
+        public MovieViewHolder(View view){
+            titleTV = view.findViewById(R.id.movieTitleTextView);
+            directorTV = view.findViewById(R.id.movieDirectorTextView);
+        }
+
     }
 
 }
